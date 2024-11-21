@@ -24,6 +24,8 @@ import http from 'node:http'
 // JSON - JavaScript Object Notation
 // Cabeçalhos (Requisições / Respostas) => Metadados
 
+// HTTP Status Code
+
 const users = []
 
 const server = http.createServer((req, res)=>{
@@ -41,10 +43,12 @@ const server = http.createServer((req, res)=>{
             name: 'João',
             email: 'joao@gmail.com'
         })
-        return res.end('Criando um novo usuário')
+        //return res.end('Criando um novo usuário')
+        return res.writeHead(201).end()
         }
 
-    return res.end('Hello World')
+    //return res.end('Hello World')
+    res.writeHead(404).end()
 })
 
 server.listen(3333)
